@@ -8,9 +8,12 @@ const MyJobs = () => {
 
     useEffect( () => {
         setIsLoading(true)
-    })
+        fetch("http://localhost:3000/myJobs/ami13@gmail.com").then(res => res.json()).then( data => {
+          setJobs(data)
+        })
+    } , [])
   return (
-    <div>MyJobs</div>
+    <div>MyJobs : {jobs.length}</div>
   )
 }
 
